@@ -1,0 +1,10 @@
+name: ForcePack
+version: 1.0
+main: net.islandearth.forcepack.spigot.ForcePack
+api-version: 1.17
+authors: [SamB440, Uxzylon]
+description: Force Resource Packs
+commands:
+  forcepack:
+    description: Manage the ForcePack plugin
+    usage: /<command> reload

@@ -1,0 +1,43 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
+    id 'java'
+}
+
+group = pluginGroup
+version = pluginVersion
+
+libsDirName = 'C:\\Users\\Antho\\Downloads\\spigot_server_test\\plugins'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url "https://erethon.de/repo/" }
+    maven { url = 'https://jitpack.io' }
+    maven {
+        name = 'codemc-repo'
+        url = 'https://repo.codemc.org/repository/maven-snapshots/'
+    }
+    maven {
+        name = 'destroystokyo-repo'
+        url = 'https://repo.destroystokyo.com/repository/maven-public/'
+    }
+    maven {
+        name = 'sonatype'
+        url = 'https://oss.sonatype.org/content/groups/public/'
+    }
+    maven {
+        url = 'https://campfire.islandearth.net/maven/'
+    }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot:1.17.1-R0.1-SNAPSHOT'
+
+    // JAX-B dependencies for JDK 9+
+    //implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+    implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+    //implementation 'junit:junit:4.13.2'
+}
