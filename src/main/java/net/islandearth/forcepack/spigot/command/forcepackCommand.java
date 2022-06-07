@@ -27,6 +27,10 @@ public class forcepackCommand implements TabExecutor {
                     return true;
                 }
             }
+            if (args.length > 1) { // Hash
+                plugin.getConfig().set("Server.ResourcePack.hash", args[1]);
+                plugin.saveConfig();
+            }
             plugin.reloadConfig();
             String url = plugin.getConfig().getString("Server.ResourcePack.url");
             String hash = plugin.getConfig().getString("Server.ResourcePack.hash");
@@ -46,7 +50,9 @@ public class forcepackCommand implements TabExecutor {
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         if (args.length == 1) {
             return Collections.singletonList("reload");
-        } else if (args.length >= 2) {
+        } else if (args.length == 2) {
+            return Collections.singletonList("<HASH>");
+        } else if (args.length >= 3) {
             return Collections.emptyList();
         }
         return null;
